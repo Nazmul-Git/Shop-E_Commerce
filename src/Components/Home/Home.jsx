@@ -1,10 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import Header from '../Header/Header';
+import ProductContainer1 from '../Header/ProductContainer1';
 
 const Home = () => {
     return (
         <div>
-            <h1>Home</h1>
+            <Header></Header>
+            <ProductContainer1></ProductContainer1>
         </div>
     );
 };
