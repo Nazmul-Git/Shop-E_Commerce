@@ -8,14 +8,11 @@ import star2 from '../../../images/Stars2.svg'
 import star3 from '../../../images/Stars3.svg'
 
 const Container3 = () => {
-    // const [peopleReact, setPeopleReact]= useState([img1,img2,img3,star1,star2,star3]);
-    // console.log(peopleReact);
-
     
     return (
-        <div>
+        <div className=' bg-green-100'>
             <div className='md:flex flex-col justify-center items-center  text-center mt-28 p-10'>
-                <h2 className=' font-extrabold text-4xl'>Testimonials</h2>
+                <h2 className=' font-extrabold text-4xl p-4'>Testimonials</h2>
                 <span>Some quotes from our happy customers</span>
             </div>
             <div className='flex justify-center items-center md:gap-20 gap-2 p-4 '>

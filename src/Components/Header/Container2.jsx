@@ -17,7 +17,7 @@ const Container2 = () => {
                         <li>Long burning: No more waste. Created for last long.</li>
                     </ul>
                 </div>
-                <Link to='' className=' bg-green-400 md:p-2 rounded-md md:absolute bottom-0'>Learn more</Link>
+                <Link to='' className=' bg-green-400 md:p-2 rounded-md md:absolute bottom-0 right-12'>Learn more</Link>
             </div>
             <div className=''>
                 <img src={candleImg} alt="candle" className='h-full shadow-xl shadow-black'/> 
