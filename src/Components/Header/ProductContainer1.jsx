@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
+import Products from './Products';
 
 const ProductContainer1 = () => {
     const [products, setProducts] = useState([]);
@@ -32,9 +33,9 @@ const ProductContainer1 = () => {
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore, cum.</p>
             </div>
 
-            <div>
+            <div className='md:flex flex-wrap gap-4 justify-center items-center p-4 m-2'>
                 {
-                    products.map(p=>)
+                    products.map(p=><Products key={p.id} products={p}></Products>)
                 }
             </div>
         </div>
