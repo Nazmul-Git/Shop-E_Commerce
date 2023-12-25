@@ -1,0 +1,29 @@
+/* eslint-disable no-unused-vars */
+import React from 'react';
+import { Link } from 'react-router-dom';
+import candleImg from '../../../images/candle.jpg'
+
+const Container2 = () => {
+    return (
+        <div className='md:grid grid-cols-2 m-10 md:p-10  mt-133px relative'>
+            <div className='relative'>
+                <div className=' text-start'>
+                    <h2 className='font extrabold text-4xl'>Clean and fragrant soy wax</h2>
+                    <span className='text-green-400 text-xl'>Made for your home and for your wellness</span>
+                    <ul className=' md:m-10 sm:m-4  md:text-xl md:flex flex-col md:gap-6 sm:gap-3'>
+                        <li>Eco-sustainable:All recyclable materials, 0% CO2 emissions.</li>
+                        <li>Hyphoallergenic: 100% natural, human friendly ingredients. </li>
+                        <li>Handmade: All candles are craftly made with love.</li>
+                        <li>Long burning: No more waste. Created for last long.</li>
+                    </ul>
+                </div>
+                <Link to='' className=' bg-green-400 md:p-2 rounded-md absolute bottom-0'>Learn more</Link>
+            </div>
+            <div className=''>
+                <img src={candleImg} alt="candle" className='h-full'/>
+            </div>
+        </div>
+    );
+};
+
+export default Container2;

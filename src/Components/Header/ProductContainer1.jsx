@@ -33,7 +33,7 @@ const ProductContainer1 = () => {
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore, cum.</p>
             </div>
 
-            <div className=' md:grid md:grid-cols-4  gap-4 p-8'>
+            <div className=' md:grid md:grid-cols-3 md:p-10  gap-4 lg:p-10 lg:grid-cols-4'>
                 {
                     products.map(p=><Products key={p.id} products={p}></Products>)
                 }
