@@ -33,7 +33,7 @@ const ProductContainer1 = () => {
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore, cum.</p>
             </div>
 
-            <div className='md:flex flex-wrap gap-4 justify-center items-center p-4 m-2'>
+            <div className=' md:grid md:grid-cols-4  gap-4 p-8'>
                 {
                     products.map(p=><Products key={p.id} products={p}></Products>)
                 }

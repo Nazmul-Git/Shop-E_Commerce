@@ -7,7 +7,7 @@ const Products = ({ products }) => {
     const { _id, name, imgUrl, price,details } = products;
     console.log(_id);
     return (
-        <div className="card w-96 bg-base-100 shadow-xl p-3">
+        <div className="shadow-xl p-3">
             <figure><img src={imgUrl} alt="Candle" /></figure>
             <div className="card-body">
                 <h2 className="card-title">
