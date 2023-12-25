@@ -6,7 +6,6 @@ const ProductContainer1 = () => {
     const [products, setProducts] = useState([]);
 
         useEffect(() => {
-          // Use an absolute path or adjust the relative path based on your project structure
           const jsonFilePath = '/src/Product1.json';
       
           fetch(jsonFilePath)
@@ -18,18 +17,16 @@ const ProductContainer1 = () => {
             })
             .then((data) => {
               setProducts(data);
-              // Do something with the fetched data, such as updating state
             })
             .catch((err) => {
               console.error(err);
-              // Handle errors, e.g., display an error message to the user
             });
         }, []);
 
     return (
         <div>
-            <div className='p-8 text-center'>
-                <h2>Products</h2>
+            <div className='p-8 text-center mt-4'>
+                <h2 className=' font-extrabold text-4xl'>Products</h2>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore, cum.</p>
             </div>
 
