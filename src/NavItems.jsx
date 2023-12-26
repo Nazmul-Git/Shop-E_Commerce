@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
+import icon from '../images/leaf.svg'
 
 const NavItems = () => {
     const [open, setOpen] = useState(false);
@@ -15,9 +16,9 @@ const NavItems = () => {
                 </span>
             </div>
 
-            <div className='flex items-center gap-4'>
-                <div>icon</div>
-                <Link to='/home'>CandLeaf</Link>
+            <div className='flex items-center gap-3 bg-green-500 p-2 rounded-lg'>
+                <img src={icon} alt=""  />
+                <Link to='/home' className='font-bold'>CandLeaf</Link>
             </div>
 
             <div className={`flex items-center gap-4 text-green-400 font-bold duration-700 md:opacity-100  ${open ? ' opacity-100' : ' opacity-0'}`}>

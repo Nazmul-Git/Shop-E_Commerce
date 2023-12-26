@@ -24,7 +24,7 @@ const ProductContainer1 = () => {
         }, []);
 
     return (
-        <div>
+        <div className='mt-20'>
             <div className='p-8 text-center mt-4'>
                 <h2 className=' font-extrabold text-4xl'>Products</h2>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore, cum.</p>

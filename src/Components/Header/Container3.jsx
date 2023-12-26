@@ -16,19 +16,19 @@ const Container3 = () => {
                 <span>Some quotes from our happy customers</span>
             </div>
             <div className='flex justify-center items-center md:gap-20 gap-2 p-4 '>
-                <div className=' shadow-white shadow-sm md:w-60 '>
+                <div className=' shadow-sm md:w-60 '>
                     <img src={img1} alt="" />
                     <img src={star1}></img>
                     <p>“I love it! No more air fresheners”</p>
                     <span className=''>Luisa</span>
                 </div>
-                <div className=' shadow-white shadow-sm md:w-60 '>
+                <div className=' shadow-sm md:w-60 '>
                     <img src={img2} alt="" />
                     <img src={star2}></img>
                     <p>“Raccomended for everyone”</p>
                     <span>Sunny</span>
                 </div>
-                <div className=' shadow-white shadow-sm md:w-60 '>
+                <div className=' shadow-sm md:w-60 '>
                     <img src={img3} alt="" />
                     <img src={star3}></img>
                     <p>“Looks very natural, the smell is awesome”</p>
