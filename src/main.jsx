@@ -9,6 +9,7 @@ import {
 import Main from './Components/Main.jsx';
 import About from './Components/Pages/About.jsx';
 import Home from './Components/Home/Home.jsx';
+import AuthProvider from './Components/AuthProvider/AuthProvider.jsx';
 
 const router = createBrowserRouter([
   {
@@ -16,18 +17,18 @@ const router = createBrowserRouter([
     element: <Main></Main>,
     children: [
       {
-        path:'/',
+        path: '/',
         element: <Home></Home>
       },
       {
-        path:'/home',
+        path: '/home',
         element: <Home></Home>
       },
       {
         path: '/about',
         element: <About></About>
       },
-      
+
     ]
 
   },
@@ -35,6 +36,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <AuthProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </AuthProvider>
   </React.StrictMode>,
 )
