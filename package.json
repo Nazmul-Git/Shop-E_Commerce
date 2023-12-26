@@ -11,10 +11,12 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.1.1",
+    "express": "^4.18.2",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-fast-marquee": "^1.6.2",
     "react-router-dom": "^6.21.1",
     "sort-by": "^1.2.0"
   },
@@ -30,5 +32,17 @@
     "postcss": "^8.4.32",
     "tailwindcss": "^3.4.0",
     "vite": "^5.0.8"
-  }
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "postcss.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nazmul-Git/Shop-E_Commerce.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nazmul-Git/Shop-E_Commerce/issues"
+  },
+  "homepage": "https://github.com/Nazmul-Git/Shop-E_Commerce#readme"
 }

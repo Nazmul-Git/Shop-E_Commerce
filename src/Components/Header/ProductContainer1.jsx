@@ -32,7 +32,7 @@ const ProductContainer1 = () => {
 
             <div className=' md:grid md:grid-cols-3 md:p-10  gap-4 lg:p-10 lg:grid-cols-4'>
                 {
-                    products.map(p=><Products key={p.id} products={p}></Products>)
+                    products.map(p=><Products key={p._id} products={p}></Products>)
                 }
             </div>
         </div>

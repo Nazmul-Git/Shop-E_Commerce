@@ -9,7 +9,7 @@ const Container2 = () => {
             <div className='relative'>
                 <div className=' text-start mb-4'>
                     <h2 className='font extrabold text-4xl'>Clean and fragrant soy wax</h2>
-                    <span className='text-green-400 text-xl'>Made for your home and for your wellness</span>
+                    <span className='text-green-400 text-lg'>Made for your home and for your wellness</span>
                     <ul className=' md:m-10 sm:m-4  md:text-xl md:flex flex-col md:gap-6 sm:gap-3'>
                         <li>Eco-sustainable:All recyclable materials, 0% CO2 emissions.</li>
                         <li>Hyphoallergenic: 100% natural, human friendly ingredients. </li>
