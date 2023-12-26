@@ -17,7 +17,7 @@ const NavItems = () => {
 
             <div className='flex items-center gap-4'>
                 <div>icon</div>
-                <Link to='/'>CandLeaf</Link>
+                <Link to='/home'>CandLeaf</Link>
             </div>
 
             <div className={`flex items-center gap-4 text-green-400 font-bold duration-700 md:opacity-100  ${open ? ' opacity-100' : ' opacity-0'}`}>

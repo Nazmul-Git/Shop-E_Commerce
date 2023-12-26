@@ -7,7 +7,7 @@ const Products = ({ products }) => {
     // eslint-disable-next-line react/prop-types
     const { _id, name, imgUrl, price,details } = products;
     const short=`${details.length>50}`&& details.slice(-50)+'...';
-    console.log(short)
+    // console.log(short)
     return (
         <div className=" relative opacity-75 hover:opacity-100 hover:bg-green-300 duration-700 shadow-xl p-3 m-4">
             <figure><img src={imgUrl} alt="Candle" /></figure>
