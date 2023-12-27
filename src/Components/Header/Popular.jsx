@@ -3,10 +3,10 @@
 import React from 'react';
 
 const Popular = ({ popular }) => {
-    console.log(popular)
+    // console.log(popular)
     const { _id, name, imgUrl, price, details } = popular;
     const short = `${details.length > 50}` && details.slice(-50) + '...';
-    console.log(name,imgUrl,price)
+    // console.log(name,imgUrl,price)
     return (
         <div className="relative opacity-75 hover:opacity-100 hover:bg-green-300 duration-700 shadow-xl p-8 ">
             <div className=' h-40 w-40'><img src={imgUrl} alt="Candle" className='' /></div>
