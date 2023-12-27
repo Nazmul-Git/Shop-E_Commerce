@@ -12,14 +12,13 @@ const Products = ({ products }) => {
         <div className=" relative opacity-75 hover:opacity-100 hover:bg-green-300 duration-700 shadow-xl p-3 m-4">
             <figure><img src={imgUrl} alt="Candle" /></figure>
             <div className="card-body">
-                <h2 className="card-title font-semibold ">
+                <h2 className="card-title font-semibold text-green-600">
                     {name}
-                    <div className="badge badge-secondary">NEW</div>
                 </h2>
-                <p className=' font-thin mb-4'>{short}</p>
+                <p className=' font-thin mb-8'>{short}</p>
                 <div className=" absolute bottom-4 right-4 flex items-center gap-2 font-semibold ">
                     <div>Price </div>
-                    <div>{price} $</div>
+                    <div className='text-blue-600 font-bold'>{price} <span className='text-red-600'>$</span></div>
                 </div>
             </div>
         </div>

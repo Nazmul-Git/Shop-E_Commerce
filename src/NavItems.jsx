@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
 import icon from '../images/leaf.svg'
@@ -7,7 +9,6 @@ import { ImUser } from "react-icons/im";
 import { FiLogOut } from "react-icons/fi";
 import { HiShoppingCart } from "react-icons/hi2";
 import { AuthContext } from './Components/AuthProvider/AuthProvider';
-import Dropdown from 'react-dropdown';
 
 
 
@@ -20,12 +21,15 @@ const NavItems = () => {
     const handleSignIn = () => {
         googleSignIn().then(result => {
             const loggedUser = result.user;
-            console.log(loggedUser)
+            console.log(loggedUser);  
+            return toast('Successfully login..!');
         }).catch(error => console.log(error.message))
     }
 
     const handleLogout = () => {
-        userLogOut().then(() =>{}).catch(error => console.error(error))
+        userLogOut().then(() =>{
+            return toast('Successfully logout..!');
+        }).catch(error => console.error(error))
     }
 
     return (
@@ -39,7 +43,7 @@ const NavItems = () => {
             </div>
 
 
-            <div className='flex sm:justify-center items-center gap-3 bg-green-500 p-2 rounded-lg'>
+            <div className='flex sm:justify-center items-center bg-green-500 p-2 rounded-lg'>
                 <img src={icon} alt="" />
                 <Link to='/home' className='font-bold'>CandLeaf</Link>
             </div>
@@ -52,8 +56,8 @@ const NavItems = () => {
             <div className='flex items-center justify-end gap-6'>
 
                 {
-                    user ? <div onClick={handleLogout} className='lg:text-3xl md:text-2xl text-xl text-red-600'><FiLogOut></FiLogOut></div>
-                        : <div onClick={handleSignIn} className='lg:text-3xl md:text-2xl text-xl text-purple-600'><ImUser></ImUser></div>
+                    user ? <div onClick={handleLogout} className='lg:text-3xl md:text-2xl text-xl text-red-600'><FiLogOut></FiLogOut><ToastContainer className='text-lg mt-24'></ToastContainer></div>
+                        : <div onClick={handleSignIn} className='lg:text-3xl md:text-2xl text-xl text-purple-600'><ImUser></ImUser><ToastContainer className='text-lg mt-24'></ToastContainer></div>
                 }
 
 
