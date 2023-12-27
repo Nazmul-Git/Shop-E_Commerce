@@ -7,6 +7,7 @@ import { ImUser } from "react-icons/im";
 import { FiLogOut } from "react-icons/fi";
 import { HiShoppingCart } from "react-icons/hi2";
 import { AuthContext } from './Components/AuthProvider/AuthProvider';
+import Dropdown from 'react-dropdown';
 
 
 
@@ -32,7 +33,7 @@ const NavItems = () => {
             <div onClick={() => { setOpen(!open) }} className='md:hidden'>
                 <span>
                     {
-                        open === true ? <XMarkIcon className='h-10 w-10'></XMarkIcon> : <Bars3Icon className='h-10 w-10'></Bars3Icon>
+                        open === true ? <XMarkIcon className='h-10 w-10 font-extrabold'></XMarkIcon> : <Bars3Icon className='h-10 w-10 font-extrabold'></Bars3Icon>
                     }
                 </span>
             </div>
@@ -43,16 +44,16 @@ const NavItems = () => {
                 <Link to='/home' className='font-bold'>CandLeaf</Link>
             </div>
 
-            <div className={`flex lg:gap-10 md:gap-4 gap-2 lg:text-xl md:text-lg text-md  text-green-400 font-bold duration-700 md:opacity-100  ${open ? ' opacity-100' : ' opacity-0'}`}>
+            <div className={`flex lg:gap-10 md:gap-4 gap-2 lg:text-xl md:text-lg text-md justify-end p-2 text-green-400 font-bold duration-700 md:opacity-100  ${open ? ' opacity-100' : ' opacity-0'}`}>
                 <Link>Discovery</Link>
                 <Link to='/about'>About</Link>
-                <Link>Contact us</Link>
+                <Link>Contact_us</Link>
             </div>
-            <div className='flex items-center gap-4'>
+            <div className='flex items-center justify-end gap-6'>
 
                 {
-                    user ? <div onClick={handleLogout} className='lg:text-3xl md:text-2xl text-xl'><FiLogOut></FiLogOut></div>
-                        : <div onClick={handleSignIn} className='lg:text-3xl md:text-2xl text-xl'><ImUser></ImUser></div>
+                    user ? <div onClick={handleLogout} className='lg:text-3xl md:text-2xl text-xl text-red-600'><FiLogOut></FiLogOut></div>
+                        : <div onClick={handleSignIn} className='lg:text-3xl md:text-2xl text-xl text-purple-600'><ImUser></ImUser></div>
                 }
 
 
