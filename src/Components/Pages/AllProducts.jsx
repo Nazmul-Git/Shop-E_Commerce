@@ -1,13 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 
-const ProductDetails = () => {
-
+const AllProducts = () => {
     return (
         <div>
-            
+            <p>all products</p>
         </div>
     );
 };
 
-export default ProductDetails;
+export default AllProducts;

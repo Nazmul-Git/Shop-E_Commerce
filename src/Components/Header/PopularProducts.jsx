@@ -13,7 +13,7 @@ const PopularProducts = () => {
         fetch('http://localhost:5000/home')
             .then(res => res.json())
             .then(data => {
-                setPopular(data)
+                setPopular(data.filter(p=>p.mostSell>200))
             })
     }, []);
 

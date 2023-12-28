@@ -49,9 +49,9 @@ const NavItems = () => {
             </div>
 
             <div className={`flex lg:gap-10 md:gap-4 gap-2 lg:text-xl md:text-lg text-md justify-end p-2 text-green-400 font-bold duration-700 md:opacity-100  ${open ? ' opacity-100' : ' opacity-0'}`}>
-                <Link>Discovery</Link>
+                <Link to=''>Discovery</Link>
                 <Link to='/about'>About</Link>
-                <Link>Contact_us</Link>
+                <Link to='/contact'>Contact_us</Link>
             </div>
             <div className='flex items-center justify-end gap-6'>
 

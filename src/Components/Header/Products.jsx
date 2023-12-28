@@ -5,16 +5,15 @@ import React from 'react';
 // eslint-disable-next-line react/prop-types
 const Products = ({ products }) => {
     // eslint-disable-next-line react/prop-types
-    const { _id, name, imgUrl, price,details } = products;
+    const { _id, name, imgUrl, price,details} = products;
     const short=`${details.length>50}`&& details.slice(-50)+'...';
     // console.log(short)
 
-    const handleClick=()=>{
-        
-    }
+
+    
 
     return (
-        <div onClick={handleClick} className=" relative opacity-75 hover:opacity-100 hover:bg-green-300 duration-700 shadow-xl p-3 m-4">
+        <div  className=" relative opacity-75 hover:opacity-100 hover:bg-gray-300 duration-700 shadow-xl p-3 m-4">
             <figure><img src={imgUrl} alt="Candle" /></figure>
             <div className="card-body">
                 <h2 className="card-title font-semibold text-green-600">
@@ -22,7 +21,7 @@ const Products = ({ products }) => {
                 </h2>
                 <p className=' font-thin mb-8'>{short}</p>
                 <div className=" absolute bottom-4 right-4 flex items-center gap-2 font-semibold ">
-                    <div>Price </div>
+                    <p className=' font-extrabold  pl-2 pr-2 rounded-md'>Price </p>
                     <div className='text-blue-600 font-bold'>{price} <span className='text-red-600'>$</span></div>
                 </div>
             </div>

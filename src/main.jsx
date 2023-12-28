@@ -10,6 +10,7 @@ import Main from './Components/Main.jsx';
 import About from './Components/Pages/About.jsx';
 import Home from './Components/Home/Home.jsx';
 import AuthProvider from './Components/AuthProvider/AuthProvider.jsx';
+// import AllProducts from './Components/Pages/AllProducts.jsx';
 
 const router = createBrowserRouter([
   {
@@ -22,8 +23,10 @@ const router = createBrowserRouter([
       },
       {
         path:'/home',
-        element: <Home></Home>
+        element: <Home></Home>,
+      
       },
+      
       {
         path: '/about',
         element: <About></About>
@@ -31,6 +34,17 @@ const router = createBrowserRouter([
       
     ]
 
+  },
+  {
+    path:'/products',
+    element:<Main></Main>,
+    // children:[
+    //   {
+    //     path:'/products',
+    //     element:<AllProducts></AllProducts>
+    //   }
+    // ]
+    
   },
 ]);
 
