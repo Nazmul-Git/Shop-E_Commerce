@@ -19,7 +19,7 @@ const ProductContainer1 = () => {
 
 
   return (
-    <div>
+    <div className=' relative'>
 
       {
         !clicked ?
@@ -28,11 +28,11 @@ const ProductContainer1 = () => {
               <h2 className=' font-extrabold text-4xl'>Feature Products</h2>
               <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore, cum.</p>
             </div>
-            <div className=' md:grid md:grid-cols-3 md:p-10  gap-4 lg:p-10 lg:grid-cols-4'>
+            <div className=' md:grid md:grid-cols-3 md:p-10  gap-4 lg:p-10 lg:grid-cols-4 relative'>
               {
                 data.map(p => <Products key={p._id} products={p} handleProductRoute={handleProductRoute}></Products>)
               }
-              <Link to='/products' className='flex text-left p-6 font-bold text-lg hover:text-blue-700'>See more ...</Link>
+              <Link to='/products' className='flex text-left font-bold text-lg hover:text-blue-700 absolute md:bottom-8 lg:bottom-4 md:right-10 lg:right-14'>See more ...</Link>
             </div>
           </div> :
           <Navigate to='/products/'></Navigate>

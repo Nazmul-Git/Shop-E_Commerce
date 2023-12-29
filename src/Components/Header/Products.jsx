@@ -19,7 +19,7 @@ const Products = ({ products, handleProductRoute }) => {
                 </h2>
                 <p className=' font-thin mb-8'>{short}</p>
                 <div className=" absolute bottom-4 right-4 flex items-center gap-2 font-semibold ">
-                    <div onClick={()=>handleProductRoute}><Link to={`/products/${_id}`} className=' font-extrabold  pl-2 pr-2 rounded-md bg-green-400'> Add to Cart </Link></div>
+                    <div onClick={()=>handleProductRoute}><Link to={`/products/${_id}`} className=' font-extrabold  pl-2 pr-2 rounded-md bg-green-400'>Details </Link></div>
                     <div className='text-blue-600 font-bold'>{price} <span className='text-red-600'>$</span></div>
                 </div>
             </div>
