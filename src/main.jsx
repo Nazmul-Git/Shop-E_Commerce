@@ -11,13 +11,18 @@ import About from './Components/Pages/About.jsx';
 import Home from './Components/Home/Home.jsx';
 import AuthProvider from './Components/AuthProvider/AuthProvider.jsx';
 import AllProducts from './Components/Pages/AllProducts.jsx';
+import Contact from './Components/Pages/Contact.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
     children: [
-      
+      {
+        path:'/',
+        element:<Home></Home>,
+        loader:()=>fetch('http://localhost:5000/home')
+      },
       {
         path:'/home',
         element: <Home></Home>,
@@ -29,6 +34,10 @@ const router = createBrowserRouter([
         path: '/about',
         element: <About></About>
       },
+      {
+        path:'/contact',
+        element:<Contact></Contact>
+      }
       
     ]
 
@@ -46,6 +55,7 @@ const router = createBrowserRouter([
     ]
     
   },
+
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
