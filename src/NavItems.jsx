@@ -33,7 +33,7 @@ const NavItems = () => {
     }
 
     return (
-        <nav className='md:flex items-center justify-between p-8 bg-neutral-100 sticky top-0 z-50 md:text-2xl'>
+        <nav className='md:flex items-center justify-between p-8 bg-white sticky top-0 z-50 md:text-2xl'>
             <div onClick={() => { setOpen(!open) }} className='md:hidden'>
                 <span>
                     {

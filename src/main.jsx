@@ -12,6 +12,7 @@ import Home from './Components/Home/Home.jsx';
 import AuthProvider from './Components/AuthProvider/AuthProvider.jsx';
 import AllProducts from './Components/Pages/AllProducts.jsx';
 import Contact from './Components/Pages/Contact.jsx';
+import Cart from './Components/Pages/Cart.jsx';
 
 const router = createBrowserRouter([
   {
@@ -51,11 +52,15 @@ const router = createBrowserRouter([
         element:<AllProducts></AllProducts>,
         loader:()=>fetch('http://localhost:5000/products')
       },
-
+      {
+        path:':id',
+        element:<Cart></Cart>,
+        loader:({params})=>fetch(`http://localhost:5000/products/${params.id}`)
+      }
     ]
     
   },
-
+  
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
