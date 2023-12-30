@@ -4,20 +4,31 @@ import { Link, useLoaderData } from 'react-router-dom';
 import leaf from '../../../images/leaf.svg'
 
 const Cart = () => {
-    const [count, setCount] = useState(0);
     const product = useLoaderData();
     const { _id, imgUrl, price, name, details, mostSell } = product;
+    const [count, setCount] = useState(1);
+    const [newPrice, setNewPrice] = useState(price.toFixed(2));
 
-    const handleCount=(e)=>{
-        e.preventDefault()
-        // console.log(e.target.innerText==='+')
-        // console.log('plus click')
-        const btn=e.target.innerText;
-        if(btn==='+') setCount(count+1);
-        else if(btn==='-') setCount(count-1);
+    console.log(count, newPrice)
+    const handleCount = (action) => {
         
-    }
-
+        if (action === 'increment' && count < 10) {
+            const newCount=count+1;
+            const newP=price*newCount.toFixed(2)
+            handlePriceUpdate(newCount,newP)
+            
+        } else if (action === 'decrement' && count > 1) {
+            const newCount=count-1
+            const newP=price * newCount
+            handlePriceUpdate(newCount,newP)
+        }
+    };
+    
+    const handlePriceUpdate = (newCount, newP) => {
+        setCount(newCount);
+        setNewPrice(newP.toFixed(2))
+    };
+    
     
     return (
         <>
@@ -31,16 +42,16 @@ const Cart = () => {
                     <p className='md:text-2xl text-green-500 font-extrabold'>{name}</p>
                     <div className='flex md:justify-between lg:gap-40 md:gap-8 gap-4 '>
                         <div>
-                            <p className='text-xl'>$ {price}</p>
+                            <p className='text-xl'>$ {newPrice}</p>
 
                             <div className=' flex-row items-center mt-10 gap-4'>
                                 <p className='md:text-2xl text-green-500 font-extrabold'>Quantity</p>
                                 <div className='flex gap-4 text-lg font-bold'>
-                                    <button onClick={handleCount} className='text-red-600'>-</button>
+                                    <button onClick={() => { handleCount('decrement'); }} className='text-red-600'>-</button>
                                     {
                                         count
                                     }
-                                    <button onClick={handleCount} className='text-blue-600'>+</button>
+                                    <button onClick={() => { handleCount('increment'); }} className='text-blue-600'>+</button>
                                 </div>
                             </div>
                         </div>
