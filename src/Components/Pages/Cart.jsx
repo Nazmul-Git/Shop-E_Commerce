@@ -7,6 +7,18 @@ const Cart = () => {
     const [count, setCount] = useState(0);
     const product = useLoaderData();
     const { _id, imgUrl, price, name, details, mostSell } = product;
+
+    const handleCount=(e)=>{
+        e.preventDefault()
+        // console.log(e.target.innerText==='+')
+        // console.log('plus click')
+        const btn=e.target.innerText;
+        if(btn==='+') setCount(count+1);
+        else if(btn==='-') setCount(count-1);
+        
+    }
+
+    
     return (
         <>
             <div className=' md:grid grid-cols-2 p-8 md:gap-10'>
@@ -24,11 +36,11 @@ const Cart = () => {
                             <div className=' flex-row items-center mt-10 gap-4'>
                                 <p className='md:text-2xl text-green-500 font-extrabold'>Quantity</p>
                                 <div className='flex gap-4 text-lg font-bold'>
-                                    <button className='text-red-600'>-</button>
+                                    <button onClick={handleCount} className='text-red-600'>-</button>
                                     {
                                         count
                                     }
-                                    <button className='text-blue-600'>+</button>
+                                    <button onClick={handleCount} className='text-blue-600'>+</button>
                                 </div>
                             </div>
                         </div>
