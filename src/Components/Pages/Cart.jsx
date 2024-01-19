@@ -9,13 +9,13 @@ const Cart = () => {
     const [count, setCount] = useState(1);
     const [newPrice, setNewPrice] = useState(price.toFixed(2));
 
-    console.log(count, newPrice)
+    // console.log(count, newPrice)
     const handleCount = (action) => {
         
         if (action === 'increment' && count < 10) {
             const newCount=count+1;
-            const newP=price*newCount.toFixed(2)
-            handlePriceUpdate(newCount,newP)
+            const newP=price*newCount.toFixed(2);
+            handlePriceUpdate(newCount,newP);
             
         } else if (action === 'decrement' && count > 1) {
             const newCount=count-1
@@ -70,7 +70,7 @@ const Cart = () => {
 
             </div>
             <div>
-                <p className='p-10 lg:text-lg text-justify'>Wax: Top grade Soy wax that delivers a smoke less,  consistent burn ||
+                <p className='p-10 lg:text-lg text-justify '>Wax: Top grade Soy wax that delivers a smoke less,  consistent burn ||
                     Fragrance: Premium quality ingredients with natural essential oils ||
                     Burning Time: 70-75 hours ||
                     Dimension: 10cm x 5cm ||

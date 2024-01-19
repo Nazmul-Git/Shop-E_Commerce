@@ -24,7 +24,7 @@ const PopularProducts = () => {
                 <span>Our top selling product that you may like</span>
             </div>
 
-            <Marquee speed={100} pauseOnHover={true}  className='p-8'>
+            <Marquee speed={50} pauseOnHover={true}  className='p-8'>
                 {
                     popular.map(m => <Popular key={m._id} popular={m}></Popular>)
                 }

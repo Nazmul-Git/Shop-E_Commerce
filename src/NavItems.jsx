@@ -12,12 +12,15 @@ import { AuthContext } from './Components/AuthProvider/AuthProvider';
 
 
 
+
 const NavItems = () => {
     const { user, googleSignIn, userLogOut } = useContext(AuthContext);
 
     // console.log(user)
     const [open, setOpen] = useState(false);
+    const [selects, setSelects]=useState();
 
+    
     const handleSignIn = () => {
         googleSignIn().then(result => {
             const loggedUser = result.user;
@@ -33,7 +36,7 @@ const NavItems = () => {
     }
 
     return (
-        <nav className='md:flex items-center justify-between p-8 bg-white sticky top-0 z-50 md:text-2xl'>
+        <nav className='md:flex items-center justify-between p-8 bg-white sticky top-0 z-50 md:text-xl'>
             <div onClick={() => { setOpen(!open) }} className='md:hidden'>
                 <span>
                     {
@@ -48,8 +51,12 @@ const NavItems = () => {
                 <Link to='/home' className='font-bold'>CandLeaf</Link>
             </div>
 
-            <div className={`flex lg:gap-10 md:gap-4 gap-2 lg:text-xl md:text-lg text-md justify-end p-2 text-green-400 font-bold duration-700 md:opacity-100  ${open ? ' opacity-100' : ' opacity-0'}`}>
-                <Link to=''>Discovery</Link>
+            <div className={`flex lg:gap-10 md:gap-8 gap-4 lg:text-xl md:text-lg text-sm justify-end p-2 text-green-400 font-bold duration-700 md:opacity-100  ${open ? ' opacity-100' : ' opacity-0'}`}>
+                <select value={selects} onChange={(e)=>setSelects(e.target.value)} className=" text-left w-full justify-center gap-x-1.5 rounded-md  shadow-sm ring-1 ring-inset">
+                    <option><Link>Discovery</Link></option>
+                    <option><Link>Order</Link></option>
+                    <option><Link>Help Center</Link></option>
+                </select>
                 <Link to='/about'>About</Link>
                 <Link to='/contact'>Contact_us</Link>
             </div>
