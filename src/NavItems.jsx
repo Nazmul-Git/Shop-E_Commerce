@@ -52,7 +52,7 @@ const NavItems = () => {
             </div>
 
             <div className={`flex lg:gap-10 md:gap-8 gap-4 lg:text-xl md:text-lg text-sm justify-end p-2 text-green-400 font-bold duration-700 md:opacity-100  ${open ? ' opacity-100' : ' opacity-0'}`}>
-                <select value={selects} onChange={(e)=>setSelects(e.target.value)} className=" text-left w-full justify-center gap-x-1.5 rounded-md  shadow-sm ring-1 ring-inset">
+                <select value={selects} onChange={(e)=>setSelects(e.target.value)} className=" text-left w-full justify-center  gap-x-1.5 rounded-md  ring-1 ring-inset">
                     <option><Link>Discovery</Link></option>
                     <option><Link>Order</Link></option>
                     <option><Link>Help Center</Link></option>
