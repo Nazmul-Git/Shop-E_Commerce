@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import Products from './Products';
 import { useState } from 'react'
@@ -6,20 +7,20 @@ import { Link, Navigate, useLoaderData } from 'react-router-dom';
 
 
 
-const ProductContainer1 = () => {
+const ProductContainer1 = ({scrollRef}) => {
   const [clicked, setClicked] = useState(false);
   const data=useLoaderData();
-  console.log(data);
+  // console.log(data);
 
 
   const handleProductRoute = (val) => {
-    console.log('clicked')
+    // console.log('clicked')
     setClicked(val);
   };
 
 
   return (
-    <div className=' relative'>
+    <div className=' relative' ref={scrollRef}>
 
       {
         !clicked ?

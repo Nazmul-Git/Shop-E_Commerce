@@ -46,9 +46,9 @@ const NavItems = () => {
             </div>
 
 
-            <div className='flex sm:justify-center items-center bg-green-500 p-2 rounded-lg'>
-                <img src={icon} alt="" />
-                <Link to='/home' className='font-bold'>CandLeaf</Link>
+            <div className='flex sm:justify-center items-center  p-2 rounded-lg'>
+                <img src={icon} alt="" className='bg-green-500 rounded-2xl'/>
+                <Link to='/home' className='font-bold text-2xl text-green-600'>CandLeaf</Link>
             </div>
 
             <div className={`flex lg:gap-10 md:gap-8 gap-4 lg:text-lg md:text-md text-sm justify-end p-2 text-black font-bold duration-700 md:opacity-100  ${open ? ' opacity-100' : ' opacity-0'}`}>

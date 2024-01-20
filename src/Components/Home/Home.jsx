@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Header from '../Header/Header';
 import ProductContainer1 from '../Header/ProductContainer1';
 import Container2 from '../Header/Container2';
@@ -9,13 +9,19 @@ import { useLoaderData } from 'react-router-dom';
 
 const Home = () => {
     const data=useLoaderData();
-    console.log(data);
-    
+    // console.log(data);
+
+    const scrollRef = useRef(null);
+    const handleClick = () => {
+        if (scrollRef.current) {
+            scrollRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
 
     return (
-        <div className=' '>
-            <Header></Header>
-            <ProductContainer1 data={data}></ProductContainer1>
+        <div>
+            <Header handleClick={handleClick}></Header>
+            <ProductContainer1 data={data} scrollRef={scrollRef}></ProductContainer1>
             <Container2></Container2>
             <Container3></Container3>
             <PopularProducts></PopularProducts>
