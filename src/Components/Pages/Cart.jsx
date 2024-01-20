@@ -11,25 +11,25 @@ const Cart = () => {
 
     // console.log(count, newPrice)
     const handleCount = (action) => {
-        
+
         if (action === 'increment' && count < 10) {
-            const newCount=count+1;
-            const newP=price*newCount.toFixed(2);
-            handlePriceUpdate(newCount,newP);
-            
+            const newCount = count + 1;
+            const newP = price * newCount.toFixed(2);
+            handlePriceUpdate(newCount, newP);
+
         } else if (action === 'decrement' && count > 1) {
-            const newCount=count-1
-            const newP=price * newCount
-            handlePriceUpdate(newCount,newP)
+            const newCount = count - 1
+            const newP = price * newCount
+            handlePriceUpdate(newCount, newP)
         }
     };
-    
+
     const handlePriceUpdate = (newCount, newP) => {
         setCount(newCount);
         setNewPrice(newP.toFixed(2))
     };
-    
-    
+
+
     return (
         <>
             <div className=' md:grid grid-cols-2 p-8 md:gap-10'>
@@ -60,7 +60,10 @@ const Cart = () => {
                         <div className=' grid grid-cols-1 lg:gap-20 md:gap-4 '>
                             <img src={leaf} alt="" className=' bg-green-500 rounded-full p-4 md:h-40 md:w-40' />
                             <p className='lg:text-lg text-justify '>{details}</p>
-                            <Link to='' className=' bg-green-300 hover:bg-green-400 lg:text-lg font-bold rounded-md text-center lg:p-2 md:p-2'>+Add to Cart</Link>
+                            <div className=' grid grid-cols-2 gap-2'>
+                                <Link to='/place-order' className=' bg-blue-300 hover:bg-blue-400 lg:text-lg md:text-md text-sm font-bold rounded-md text-center p-2'>Buy Now</Link>
+                                <Link to='' className=' bg-green-300 hover:bg-green-400 lg:text-lg md:text-md text-sm font-bold rounded-md text-center p-2'>Add Cart</Link>
+                            </div>
                         </div>
 
 

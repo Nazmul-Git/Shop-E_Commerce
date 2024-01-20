@@ -55,7 +55,7 @@ const NavItems = () => {
                 <select value={selects} onChange={(e)=>setSelects(e.target.value)} className=" text-left w-full justify-center  gap-x-1.5 rounded-md  ring-1 ring-inset">
                     <option><Link>Discovery</Link></option>
                     <option><Link>Order</Link></option>
-                    <option><Link>Help Center</Link></option>
+                    <option><Link>Help Center</Link></option> 
                 </select>
                 <Link to='/about'>About</Link>
                 <Link to='/contact'>Contact_us</Link>

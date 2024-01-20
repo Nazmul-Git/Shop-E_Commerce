@@ -10,7 +10,6 @@ import { useLoaderData } from 'react-router-dom';
 const Home = () => {
     const data=useLoaderData();
     // console.log(data);
-
     const scrollRef = useRef(null);
     const handleClick = () => {
         if (scrollRef.current) {

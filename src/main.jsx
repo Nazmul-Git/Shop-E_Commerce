@@ -13,6 +13,7 @@ import AuthProvider from './Components/AuthProvider/AuthProvider.jsx';
 import AllProducts from './Components/Pages/AllProducts.jsx';
 import Contact from './Components/Pages/Contact.jsx';
 import Cart from './Components/Pages/Cart.jsx';
+import PlaceOrder from './PlaceOrder.jsx';
 
 const router = createBrowserRouter([
   {
@@ -56,10 +57,20 @@ const router = createBrowserRouter([
         path:':id',
         element:<Cart></Cart>,
         loader:({params})=>fetch(`http://localhost:5000/products/${params.id}`)
+      },
+    ]
+  },
+  
+  {
+    path:'/',
+    element:<Main></Main>,
+    children:[
+      {
+        path:'/place-order',
+        element:<PlaceOrder></PlaceOrder>
       }
     ]
-    
-  },
+  }
   
 ]);
 
