@@ -7,7 +7,7 @@ const Header = () => {
   
     return (
         <div className='md:flex flex-row items-center justify-center'>
-            <img src={h_img} alt="" className='w-full relative'/>
+            <img src={h_img} alt="" className='w-full md:relative'/>
             <div className=' shadow-lg shadow-black-500 md:p-10 md:ml-48 md:mr-48  sm:p-2 md:absolute backdrop-blur-sm'>
                 <div className=' text-center md:text-white'>
                     <h3 className=' font-bold'>The natural candle</h3>
