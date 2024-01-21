@@ -6,7 +6,14 @@ const PlaceOrder = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(e);
+        const form=e.target;
+        const name=form.name.value;
+        const number=form.number.value;
+        const province=form.province.value;
+        const city=form.city.value;
+        const area=form.area.value;
+        const address=form.address.value;
+        // console.log(name,number, province,city,area,address)
     }
 
     return (
@@ -45,13 +52,7 @@ const PlaceOrder = () => {
                                         <label className="label">
                                             <span className="label-text text-black font-bold">City</span>
                                         </label>
-                                        <input type="text" name='text' required placeholder="City" className="input input-bordered" />
-                                    </div>
-                                    <div className="grid grid-cols-2 gap-2">
-                                        <label className="label">
-                                            <span className="label-text text-black font-bold">Address</span>
-                                        </label>
-                                        <input type="text" name='address' required placeholder="Address" className="input input-bordered" />
+                                        <input type="text" name='city' required placeholder="City" className="input input-bordered" />
                                     </div>
                                     <div className="grid grid-cols-2 gap-2">
                                         <label className="label">
@@ -59,9 +60,16 @@ const PlaceOrder = () => {
                                         </label>
                                         <input type="text" name='area' required placeholder="Area" className="input input-bordered" />
                                     </div>
+                                    <div className="grid grid-cols-2 gap-2">
+                                        <label className="label">
+                                            <span className="label-text text-black font-bold">Address</span>
+                                        </label>
+                                        <input type="text" name='address' required placeholder="Address" className="input input-bordered" />
+                                    </div>
+                                    
                                     
                                     <div className="mt-6">
-                                        <button className=" text-lg font-bold bg-orange-400 p-2 w-full rounded-md"> Save</button>
+                                        <button  type='submit' value='submit' className=" text-lg font-bold bg-orange-400 p-2 w-full rounded-md"> Save</button>
                                     </div>
 
                                 </form>
