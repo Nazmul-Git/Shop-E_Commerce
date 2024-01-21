@@ -2,13 +2,16 @@
 import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import leaf from '../../../images/leaf.svg'
+import CheckOut from './CheckOut';
 
 const Cart = () => {
     const product = useLoaderData();
     const { _id, imgUrl, price, name, details, mostSell } = product;
     const [count, setCount] = useState(1);
     const [newPrice, setNewPrice] = useState(price.toFixed(2));
+    const [isModalOpen, setModalOpen] = useState(false);
 
+    // console.log(isModalOpen)
     // console.log(count, newPrice)
     const handleCount = (action) => {
 
@@ -31,7 +34,7 @@ const Cart = () => {
 
 
     return (
-        <>
+        <div className=' relative'>
             <div className=' md:grid grid-cols-2 p-8 md:gap-10'>
                 <div className=' bg-gray-100 p-4'>
                     <img src={imgUrl} alt="" className='' />
@@ -62,13 +65,10 @@ const Cart = () => {
                             <p className='lg:text-lg text-justify '>{details}</p>
                             <div className=' grid grid-cols-2 gap-2'>
                                 <Link to='/place-order' className=' bg-blue-300 hover:bg-blue-400 lg:text-lg md:text-md text-sm font-bold rounded-md text-center p-2'>Buy Now</Link>
-                                <Link to='' className=' bg-green-300 hover:bg-green-400 lg:text-lg md:text-md text-sm font-bold rounded-md text-center p-2'>Add Cart</Link>
+                                <Link to='' onClick={() => setModalOpen(true)} className=' bg-green-300 hover:bg-green-400 lg:text-lg md:text-md text-sm font-bold rounded-md text-center p-2'>Add Cart</Link>
                             </div>
                         </div>
-
-
                     </div>
-
                 </div>
 
             </div>
@@ -79,7 +79,13 @@ const Cart = () => {
                     Dimension: 10cm x 5cm ||
                     Weight: 400g </p>
             </div>
-        </>
+            {
+                isModalOpen && <div className=' absolute top-2 right-20 left-20'><CheckOut isModalOpen={isModalOpen} onClose={()=>setModalOpen(false)}></CheckOut></div>
+                
+            }
+
+        </div>
+            
     );
 };
 

@@ -47,7 +47,7 @@ const NavItems = () => {
 
 
             <div className='flex sm:justify-center items-center  p-2 rounded-lg'>
-                <img src={icon} alt="" className='bg-green-500 rounded-2xl'/>
+                <img src={icon} alt="" className='bg-green-700 rounded-3xl p-1'/>
                 <Link to='/home' className='font-bold text-2xl text-green-600'>CandLeaf</Link>
             </div>
 
