@@ -21,8 +21,8 @@ const PlaceOrder = () => {
     }
 
     return (
-        <div className=' md:grid grid-cols-2 lg:p-20 md:p-8 gap-4'>
-            <div>
+        <div className=' md:grid grid-cols-2 lg:p-20 md:p-6 p-4 gap-4'>
+            <div className='p-2'>
                 <div className=' text-black'>
                     <div className="">
                         <div className="hero-content flex-col backdrop-blur-sm">
@@ -82,7 +82,7 @@ const PlaceOrder = () => {
             </div>
 
             <div className={`${isUser ? 'opacity-100' : 'opacity-0'} shadow-md
-                shadow-orange-600 rounded-md duration-700 md:p-4`}>
+                shadow-orange-600 rounded-md duration-700 m-2 p-2`}>
                 <div className='md:mt-10'>
                     <p className=' text-md font-bold'>Discount & Payment</p>
                     <div className='grid grid-cols-2 mt-2'>
@@ -110,7 +110,7 @@ const PlaceOrder = () => {
                             <p>55</p>
                             <p>55</p>
                             <p>157</p>
-                            <Link className=' bg-blue-400 hover:bg-blue-600 p-2 text-center text-white font-bold rounded-md '>Place-Order</Link>
+                            <Link to='' className=' bg-blue-400 hover:bg-blue-600 p-2 text-center text-white font-bold rounded-md '>Place-Order</Link>
                         </div>
                     </div>
 
