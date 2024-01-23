@@ -1,15 +1,18 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import leaf from '../../../images/leaf.svg'
 import CheckOut from './CheckOut';
+import PlaceOrder from '../../PlaceOrder';
 
 const Cart = () => {
+    const navigate=useNavigate();
     const product = useLoaderData();
     const { _id, imgUrl, price, name, details, mostSell } = product;
     const [count, setCount] = useState(1);
     const [newPrice, setNewPrice] = useState(price.toFixed(2));
     const [isModalOpen, setModalOpen] = useState(false);
+    const [newState, setNewState]=useState(false)
 
     // console.log(isModalOpen)
     // console.log(count, newPrice)
@@ -31,9 +34,16 @@ const Cart = () => {
         setCount(newCount);
         setNewPrice(newP.toFixed(2))
     };
+    const navigateTo=()=>{
+        navigate('/place-order');
+        // return newPrice; 
+        // price ta k placeOrder a pathate hobe
+        setNewState(true)
+    }
 
 
     return (
+        newState?
         <div className=' relative'>
             <div className=' md:grid grid-cols-2 p-8 md:gap-10'>
                 <div className=' bg-gray-100 p-4'>
@@ -64,8 +74,8 @@ const Cart = () => {
                             <img src={leaf} alt="" className=' bg-green-500 rounded-full p-4 md:h-40 md:w-40' />
                             <p className='lg:text-lg text-justify '>{details}</p>
                             <div className=' grid grid-cols-2 gap-2'>
-                                <Link to='/place-order' className=' bg-blue-300 hover:bg-blue-400 lg:text-lg md:text-md text-sm font-bold rounded-md text-center p-2'>Buy Now</Link>
-                                <Link to='' onClick={() => setModalOpen(true)} className=' bg-green-300 hover:bg-green-400 lg:text-lg md:text-md text-sm font-bold rounded-md text-center p-2'>Add Cart</Link>
+                                <button onClick={navigateTo}  className=' bg-blue-300 hover:bg-blue-400 lg:text-lg md:text-md text-sm font-bold rounded-md text-center p-2'>Buy Now</button>
+                                <button onClick={() => setModalOpen(true)} className=' bg-green-300 hover:bg-green-400 lg:text-lg md:text-md text-sm font-bold rounded-md text-center p-2'>Add Cart</button>
                             </div>
                         </div>
                     </div>
@@ -80,12 +90,12 @@ const Cart = () => {
                     Weight: 400g </p>
             </div>
             {
-                isModalOpen && <div className=' absolute top-2 right-20 left-20'><CheckOut isModalOpen={isModalOpen} onClose={()=>setModalOpen(false)}></CheckOut></div>
-                
+                isModalOpen && <div className=' absolute top-2 right-20 left-20'><CheckOut isModalOpen={isModalOpen} onClose={() => setModalOpen(false)}></CheckOut></div>
+
             }
 
-        </div>
-            
+        </div> : <PlaceOrder key={_id} totalPrice={price}></PlaceOrder>
+
     );
 };
 
