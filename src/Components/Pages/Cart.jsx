@@ -35,7 +35,7 @@ const Cart = () => {
         setNewPrice(newP.toFixed(2))
     };
     const navigateTo=()=>{
-        navigate('/place-order');
+        // navigate('/place-order');
         // return newPrice; 
         // price ta k placeOrder a pathate hobe
         setNewState(true)

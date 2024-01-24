@@ -8,8 +8,10 @@ import { Link } from 'react-router-dom';
 const PlaceOrder = ({totalPrice}) => {
     const [isUser, setUser] = useState(false);
     const [userDetails, setUserDetails]=useState([]);
-    console.log(userDetails)
-    console.log(totalPrice)
+    const [deliveryFee, setDelivery]=useState(null);
+    // console.log(userDetails)
+    // console.log(totalPrice)
+    console.log(deliveryFee)
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -20,14 +22,21 @@ const PlaceOrder = ({totalPrice}) => {
         const city = form.city.value;
         const area = form.area.value;
         const address = form.address.value;
+        const newArr=[username,number, province,city,area,address];
+
+        const lowerCase=province.toLowerCase();
+        if(lowerCase==='dhaka') setDelivery(55)
+        else setDelivery(120)        
+
         // console.log(username,number, province,city,area,address)
-        const newArr=[username,number, province,city,area,address]
+
         if (form){ 
             setUser(true);
             setUserDetails(newArr)
         }
         form.reset();
     }
+
 
     return (
         <div className=' md:grid grid-cols-2 lg:p-20 md:p-6 p-2 gap-4'>
@@ -126,7 +135,7 @@ const PlaceOrder = ({totalPrice}) => {
                         </div>
                         <div className=' flex flex-col gap-2 text-red-600 font-semibold'>
                             <p>{totalPrice} $</p>
-                            <p>55</p>
+                            <p>{deliveryFee} $</p>
                             <p>55</p>
                             <p>157</p>
                             <Link to='' className=' bg-blue-400 hover:bg-blue-600 p-2 text-center text-white font-bold rounded-md '>Place-Order</Link>
