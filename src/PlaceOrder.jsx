@@ -5,10 +5,12 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // eslint-disable-next-line react/prop-types
-const PlaceOrder = ({totalPrice}) => {
+const PlaceOrder = ({totalPrice, quantity}) => {
     const [isUser, setUser] = useState(false);
     const [userDetails, setUserDetails]=useState([]);
     const [deliveryFee, setDelivery]=useState(null);
+    const [vat, setVat]=useState(null);
+    const [priceWithCharge, setPriceWithCharge]=useState(null);
     // console.log(userDetails)
     // console.log(totalPrice)
     console.log(deliveryFee)
@@ -35,6 +37,13 @@ const PlaceOrder = ({totalPrice}) => {
             setUserDetails(newArr)
         }
         form.reset();
+    };
+
+    const calculateVat=()=>{
+        // console.log(quantity)
+        const vatIn100=100*0.01;
+        setVat(((vatIn100*totalPrice)/100).toFixed(2));
+        setPriceWithCharge((totalPrice+deliveryFee+vat).toFixed(2));
     }
 
 
@@ -90,7 +99,7 @@ const PlaceOrder = ({totalPrice}) => {
                                     </div>
 
                                     <div className="">
-                                        <button type='submit' value='submit' className=" text-lg font-bold bg-orange-300 p-2 w-full rounded-md hover:bg-orange-500 md:mt-10 "> Save</button>
+                                        <button onClick={calculateVat} type='submit' value='submit' className=" text-lg font-bold bg-orange-300 p-2 w-full rounded-md hover:bg-orange-500 md:mt-10 "> Save</button>
                                     </div>
                                 </form>
                             </div>
@@ -110,7 +119,7 @@ const PlaceOrder = ({totalPrice}) => {
             }
 
             <div className={`${isUser ? 'opacity-100' : 'opacity-0'} shadow-md
-                shadow-orange-600 rounded-md duration-700 p-2 `}>
+                shadow-orange-600 rounded-md duration-700 p-2`}>
                 <div className='md:mt-10'>
                     <p className=' text-md font-bold'>Discount & Payment</p>
                     <div className='grid grid-cols-2 mt-2'>
@@ -128,7 +137,7 @@ const PlaceOrder = ({totalPrice}) => {
                     <p className=' text-md font-bold'>Order Summery</p>
                     <div className='grid grid-cols-2 mt-2'>
                         <div className=' flex flex-col gap-2'>
-                            <p>Items Total</p>
+                            <p>{quantity} Items Total</p>
                             <p>Delivery Fee</p>
                             <p>Vat</p>
                             <p>Total Payment</p>
@@ -136,8 +145,8 @@ const PlaceOrder = ({totalPrice}) => {
                         <div className=' flex flex-col gap-2 text-red-600 font-semibold'>
                             <p>{totalPrice} $</p>
                             <p>{deliveryFee} $</p>
-                            <p>55</p>
-                            <p>157</p>
+                            <p>{vat} $</p>
+                            <p>{priceWithCharge} $</p>
                             <Link to='' className=' bg-blue-400 hover:bg-blue-600 p-2 text-center text-white font-bold rounded-md '>Place-Order</Link>
                         </div>
                     </div>

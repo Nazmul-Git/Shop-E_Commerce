@@ -94,7 +94,7 @@ const Cart = () => {
 
             }
 
-        </div> : <PlaceOrder key={_id} totalPrice={price}></PlaceOrder>
+        </div> : <PlaceOrder key={_id} totalPrice={price} quantity={count}></PlaceOrder>
 
     );
 };
