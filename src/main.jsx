@@ -13,6 +13,8 @@ import AuthProvider from './Components/AuthProvider/AuthProvider.jsx';
 import AllProducts from './Components/Pages/AllProducts.jsx';
 import Contact from './Components/Pages/Contact.jsx';
 import Cart from './Components/Pages/Cart.jsx';
+import Login from './Components/Login/Login.jsx';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -54,11 +56,15 @@ const router = createBrowserRouter([
       },
       {
         path:':id',
-        element:<Cart></Cart>,
+        element:<PrivateRoute><Cart></Cart></PrivateRoute>,
         loader:({params})=>fetch(`http://localhost:5000/products/${params.id}`)
       },
     ]
   },
+  {
+    path:'/login',
+    element:<Login></Login>
+  }
   
  
 ]);
