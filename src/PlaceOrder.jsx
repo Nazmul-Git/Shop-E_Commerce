@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-import { Input } from 'postcss';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -13,7 +12,7 @@ const PlaceOrder = ({totalPrice, quantity}) => {
     const [priceWithCharge, setPriceWithCharge]=useState(null);
     // console.log(userDetails)
     // console.log(totalPrice)
-    console.log(deliveryFee)
+    // console.log(deliveryFee)
 
     const handleSubmit = (e) => {
         e.preventDefault();

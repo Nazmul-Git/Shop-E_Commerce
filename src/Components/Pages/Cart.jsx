@@ -43,7 +43,7 @@ const Cart = () => {
 
 
     return (
-        newState?
+        !newState?
         <div className=' relative'>
             <div className=' md:grid grid-cols-2 p-8 md:gap-10'>
                 <div className=' bg-gray-100 p-4'>
@@ -94,7 +94,7 @@ const Cart = () => {
 
             }
 
-        </div> : <PlaceOrder key={_id} totalPrice={price} quantity={count}></PlaceOrder>
+        </div> : <PlaceOrder key={_id} totalPrice={newPrice} quantity={count}></PlaceOrder>
 
     );
 };
