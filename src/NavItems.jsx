@@ -9,6 +9,7 @@ import { ImUser } from "react-icons/im";
 import { FiLogOut } from "react-icons/fi";
 import { HiShoppingCart } from "react-icons/hi2";
 import { AuthContext } from './Components/AuthProvider/AuthProvider';
+import ActiveLink from './Components/ActiveLink/ActiveLink';
 
 
 
@@ -53,12 +54,12 @@ const NavItems = () => {
 
             <div className={`flex lg:gap-10 md:gap-8 gap-4 lg:text-lg md:text-md text-sm justify-end p-2 text-black font-bold duration-700 md:opacity-100  ${open ? ' opacity-100' : ' opacity-0'}`}>
                 <select value={selects} onChange={(e)=>setSelects(e.target.value)} className=" text-left w-full justify-center  gap-x-1.5 rounded-md  ring-1 ring-inset">
-                    <option><Link>Discovery</Link></option>
-                    <option><Link>Order</Link></option>
-                    <option><Link>Help Center</Link></option> 
+                    <option><ActiveLink>Discovery</ActiveLink></option>
+                    <option><ActiveLink>Order</ActiveLink></option>
+                    <option><ActiveLink>Help Center</ActiveLink></option> 
                 </select>
-                <Link to='/about'>About</Link>
-                <Link to='/contact'>Contact_us</Link>
+                <ActiveLink to='/about'>About</ActiveLink>
+                <ActiveLink to='/contact'>Contact_us</ActiveLink>
             </div>
             <div className='flex items-center justify-end gap-6'>
 

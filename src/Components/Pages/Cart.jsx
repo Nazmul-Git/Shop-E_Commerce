@@ -1,12 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import { Link, useLoaderData, useNavigate } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import leaf from '../../../images/leaf.svg'
 import CheckOut from './CheckOut';
 import PlaceOrder from '../../PlaceOrder';
 
 const Cart = () => {
-    const navigate=useNavigate();
     const product = useLoaderData();
     const { _id, imgUrl, price, name, details, mostSell } = product;
     const [count, setCount] = useState(1);
@@ -94,7 +93,7 @@ const Cart = () => {
 
             }
 
-        </div> : <PlaceOrder key={_id} totalPrice={newPrice} quantity={count}></PlaceOrder>
+        </div> : <PlaceOrder key={_id} totalPrice={newPrice} quantity={count} imgUrl={imgUrl} productName={name}></PlaceOrder>
 
     );
 };

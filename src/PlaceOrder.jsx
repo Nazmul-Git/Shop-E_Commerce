@@ -4,15 +4,14 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // eslint-disable-next-line react/prop-types
-const PlaceOrder = ({totalPrice, quantity}) => {
+const PlaceOrder = ({ totalPrice, quantity, imgUrl,productName }) => {
     const [isUser, setUser] = useState(false);
-    const [userDetails, setUserDetails]=useState([]);
-    const [deliveryFee, setDelivery]=useState(null);
-    const [vat, setVat]=useState(null);
-    const [priceWithCharge, setPriceWithCharge]=useState(null);
+    const [userDetails, setUserDetails] = useState([]);
+    const [deliveryFee, setDelivery] = useState(null);
+    const [vats, setVats] = useState(null);
+    const [priceWithCharge, setPriceWithCharge] = useState(null);
     // console.log(userDetails)
-    // console.log(totalPrice)
-    // console.log(deliveryFee)
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -23,32 +22,38 @@ const PlaceOrder = ({totalPrice, quantity}) => {
         const city = form.city.value;
         const area = form.area.value;
         const address = form.address.value;
-        const newArr=[username,number, province,city,area,address];
+        const arrNew=[username,number,province,city,area,address]
 
-        const lowerCase=province.toLowerCase();
-        if(lowerCase==='dhaka') setDelivery(55)
-        else setDelivery(120)        
+        const lowerCase = province.toLowerCase();
+        let delivery;
+        if (lowerCase === 'dhaka'){
+            setDelivery(55)
+            delivery=55;
+        } 
+        else{
+            setDelivery(120)
+            delivery=120;
+        } 
 
-        // console.log(username,number, province,city,area,address)
+        // calculate vat & total price
+        const vatIn100 = 100 * 0.01;
+        const itemsPrice=parseInt(totalPrice);
+        const vat=parseInt(((vatIn100 * itemsPrice) / 100).toFixed(2));
+        setVats(vat)
+        // console.log(itemsPrice, delivery,  vat)
+        setPriceWithCharge((itemsPrice + delivery + vat).toFixed(2));
 
-        if (form){ 
+        if (form) {
             setUser(true);
-            setUserDetails(newArr)
+            setUserDetails(arrNew);
         }
         form.reset();
     };
 
-    const calculateVat=()=>{
-        // console.log(quantity)
-        const vatIn100=100*0.01;
-        setVat(((vatIn100*totalPrice)/100).toFixed(2));
-        setPriceWithCharge((totalPrice+deliveryFee+vat).toFixed(2));
-    }
-
 
     return (
         <div className=' md:grid grid-cols-2 lg:p-20 md:p-6 p-2 gap-4'>
-            { !isUser ? <div className=''>
+            {!isUser ? <div className=''>
                 <div className=' text-black'>
                     <div className="">
                         <div className="hero-content flex-col backdrop-blur-sm">
@@ -98,7 +103,7 @@ const PlaceOrder = ({totalPrice, quantity}) => {
                                     </div>
 
                                     <div className="">
-                                        <button onClick={calculateVat} type='submit' value='submit' className=" text-lg font-bold bg-orange-300 p-2 w-full rounded-md hover:bg-orange-500 md:mt-10 "> Save</button>
+                                        <button  type='submit' value='submit' className=" text-lg font-bold bg-orange-300 p-2 w-full rounded-md hover:bg-orange-500 md:mt-10 "> Save</button>
                                     </div>
                                 </form>
                             </div>
@@ -106,19 +111,25 @@ const PlaceOrder = ({totalPrice, quantity}) => {
                     </div>
                 </ div>
             </div> :
-            <div className='flex flex-col gap-5'>
-                <p className='text-lg font-bold text-center text-green-500 '>Order Details</p>
-                <div className='grid grid-cols-1 shadow-sm shadow-orange-300 rounded-md'>
-                    {
-                     userDetails.map((d,i)=><p key={i} className='p-2 font-semibold'>{d}</p>)
-                    }
+                <div className='flex flex-col gap-5'>
+                    <p className='text-lg font-bold text-center text-green-500 '>Order Details</p>
+                    <div className=' grid grid-cols-2'>
+                        <div className='grid grid-cols-1 shadow-sm shadow-green-300 rounded-md'>
+                            {
+                                userDetails.map((d, i) => <p key={i} className='p-2 font-semibold'>{d}</p>)
+                            }
+                        </div>
+                        <div className=' backdrop-blur-md'>
+                            <img src={imgUrl} alt="" />
+                            <p className=' text-center font-semibold'>{productName}</p>
+                        </div>
+                    </div>
+                    <button type='submit' value='submit' className=" text-lg font-bold bg-orange-300 p-2 w-full rounded-md hover:bg-orange-500">Edit Details</button>
                 </div>
-                <button type='submit' value='submit' className=" text-lg font-bold bg-orange-300 p-2 w-full rounded-md hover:bg-orange-500"> Edit Details</button>
-            </div>
             }
 
-            <div className={`${isUser ? 'opacity-100' : 'opacity-0'} shadow-md
-                shadow-orange-600 rounded-md duration-700 p-2`}>
+            <div className={`${isUser ? 'opacity-100' : 'opacity-0'} shadow-inner
+                shadow-green-600 rounded-md duration-700 p-2`}>
                 <div className='md:mt-10'>
                     <p className=' text-md font-bold'>Discount & Payment</p>
                     <div className='grid grid-cols-2 mt-2'>
@@ -144,7 +155,7 @@ const PlaceOrder = ({totalPrice, quantity}) => {
                         <div className=' flex flex-col gap-2 text-red-600 font-semibold'>
                             <p>{totalPrice} $</p>
                             <p>{deliveryFee} $</p>
-                            <p>{vat} $</p>
+                            <p>{vats} $</p>
                             <p>{priceWithCharge} $</p>
                             <Link to='' className=' bg-blue-400 hover:bg-blue-600 p-2 text-center text-white font-bold rounded-md '>Place-Order</Link>
                         </div>
