@@ -19,19 +19,19 @@ const NavItems = () => {
 
     // console.log(user)
     const [open, setOpen] = useState(false);
-    const [selects, setSelects]=useState();
+    const [selects, setSelects] = useState();
 
-    
+
     const handleSignIn = () => {
         googleSignIn().then(result => {
             const loggedUser = result.user;
-            console.log(loggedUser);  
+            console.log(loggedUser);
             return toast('Successfully login..!');
         }).catch(error => console.log(error.message))
     }
 
     const handleLogout = () => {
-        userLogOut().then(() =>{
+        userLogOut().then(() => {
             return toast('Successfully logout..!');
         }).catch(error => console.error(error))
     }
@@ -48,24 +48,25 @@ const NavItems = () => {
 
 
             <div className='flex sm:justify-center items-center  p-2 rounded-lg'>
-                <img src={icon} alt="" className='bg-green-700 rounded-3xl p-1'/>
+                <img src={icon} alt="" className='bg-green-700 rounded-3xl p-1' />
                 <Link to='/home' className='font-bold text-2xl text-green-600'>CandLeaf</Link>
             </div>
 
             <div className={`flex lg:gap-10 md:gap-8 gap-4 lg:text-lg md:text-md text-sm justify-end p-2 text-black font-bold duration-700 md:opacity-100  ${open ? ' opacity-100' : ' opacity-0'}`}>
-                <select value={selects} onChange={(e)=>setSelects(e.target.value)} className=" text-left w-full justify-center  gap-x-1.5 rounded-md  ring-1 ring-inset">
+                {/* <select value={selects} onChange={(e) => setSelects(e.target.value)} className=" text-left w-full justify-center  gap-x-1.5 rounded-md  ring-1 ring-inset">
                     <option><ActiveLink>Discovery</ActiveLink></option>
                     <option><ActiveLink>Order</ActiveLink></option>
-                    <option><ActiveLink>Help Center</ActiveLink></option> 
-                </select>
+                    <option><ActiveLink>Help Center</ActiveLink></option>
+                </select> */}
+                <ActiveLink to='/place-order'>Order</ActiveLink>
                 <ActiveLink to='/about'>About</ActiveLink>
                 <ActiveLink to='/contact'>Contact_us</ActiveLink>
             </div>
             <div className='flex items-center justify-end gap-6'>
 
                 {
-                    user ? <div onClick={handleLogout} className='lg:text-3xl md:text-2xl text-xl text-red-600'><FiLogOut></FiLogOut><ToastContainer className='text-lg mt-24'></ToastContainer></div>
-                        : <div onClick={handleSignIn} className='lg:text-3xl md:text-2xl text-xl text-purple-600'><ImUser></ImUser><ToastContainer className='text-lg mt-24'></ToastContainer></div>
+                    user ? <div onClick={handleLogout} className=' font-semibold text-red-600 flex flex-row items-center gap-1    '><span className='text-md'>Log out</span><FiLogOut></FiLogOut><ToastContainer className='text-lg mt-24'></ToastContainer></div>
+                        : <div onClick={handleSignIn} className=' font-semibold text-blue-600 flex flex-row items-center gap-1'><span className='text-md'>Log in</span><ImUser></ImUser><ToastContainer className='text-lg mt-24'></ToastContainer></div>
                 }
 
 

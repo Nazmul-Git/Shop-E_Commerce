@@ -1,22 +1,34 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 // LoginPage.jsx
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from '../AuthProvider/AuthProvider';
+// import { ToastContainer, toast } from 'react-toastify';
 
 
 const Login = () => {
+    const { user, googleSignIn } = useContext(AuthContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    console.log(email, password)
-    const handleLogin = async () => {
-        // Simulate authentication (replace with actual authentication logic)
-        if (email === 'email' && password === 'password') {
-            alert('Login successful!');
-        } else {
-            alert('Login failed. Please check your credentials.');
-        }
-    };
+    const location=useLocation();
+    const navigate=useNavigate();
+    const from=location.state?.from?.pathname || '/home'
+    console.log(location, from);
+
+    const handleSignIn = () => {
+        googleSignIn().then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            //navigate do not work
+            navigate(from, {replace:true})
+            // return toast('Successfully login..!');
+        }).catch(error => console.log(error.message))
+    }
+    const handleLogin=()=>{
+
+    }
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -53,10 +65,11 @@ const Login = () => {
                                 <span>New in this site ?</span>
                                 <Link to='/register' className='text-blue-500 underline font-semibold'>Register</Link>
                             </div>
-                            <button>
+                            <button onClick={handleSignIn}>
                                 <div className='flex gap-1'>
                                     <span className='text-center text-blue-500 font-semibold'>Sign in with </span>
                                     <FcGoogle className='w-8 h-8' />
+                                    {/* <ToastContainer className=' text-lg mt-10'></ToastContainer> */}
                                 </div>
                             </button>
 

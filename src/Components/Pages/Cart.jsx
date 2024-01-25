@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import leaf from '../../../images/leaf.svg'
 import CheckOut from './CheckOut';
 import PlaceOrder from '../../PlaceOrder';
@@ -11,7 +11,8 @@ const Cart = () => {
     const [count, setCount] = useState(1);
     const [newPrice, setNewPrice] = useState(price.toFixed(2));
     const [isModalOpen, setModalOpen] = useState(false);
-    const [newState, setNewState]=useState(false)
+    const [newState, setNewState]=useState(false);
+    
 
     // console.log(isModalOpen)
     // console.log(count, newPrice)
@@ -34,10 +35,8 @@ const Cart = () => {
         setNewPrice(newP.toFixed(2))
     };
     const navigateTo=()=>{
-        // navigate('/place-order');
-        // return newPrice; 
-        // price ta k placeOrder a pathate hobe
         setNewState(true)
+        // navigate('/place-order');
     }
 
 
@@ -73,7 +72,7 @@ const Cart = () => {
                             <img src={leaf} alt="" className=' bg-green-500 rounded-full p-4 md:h-40 md:w-40' />
                             <p className='lg:text-lg text-justify '>{details}</p>
                             <div className=' grid grid-cols-2 gap-2'>
-                                <button onClick={navigateTo}  className=' bg-blue-300 hover:bg-blue-400 lg:text-lg md:text-md text-sm font-bold rounded-md text-center p-2'>Buy Now</button>
+                                <button onClick={navigateTo}  className=' bg-blue-300 hover:bg-blue-400 lg:text-lg md:text-md text-sm font-bold rounded-md text-center p-2'><Link to='/place-order'>Buy Now</Link></button>
                                 <button onClick={() => setModalOpen(true)} className=' bg-green-300 hover:bg-green-400 lg:text-lg md:text-md text-sm font-bold rounded-md text-center p-2'>Add Cart</button>
                             </div>
                         </div>
