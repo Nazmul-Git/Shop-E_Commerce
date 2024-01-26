@@ -59,19 +59,19 @@ const NavItems = () => {
                     <option><ActiveLink>Help Center</ActiveLink></option>
                 </select> */}
                 <ActiveLink to='/home'>Home</ActiveLink>
-                <ActiveLink to='/orders'>Order</ActiveLink>
+                <ActiveLink to='/orders'>Orders</ActiveLink>
                 <ActiveLink to='/about'>About</ActiveLink>
                 <ActiveLink to='/contact'>Contact_us</ActiveLink>
             </div>
             <div className='flex items-center justify-end gap-6'>
 
                 {
-                    user ? <div onClick={handleLogout} className=' font-semibold text-red-600 flex flex-row items-center gap-1    '><span className='text-md'>Log out</span><FiLogOut></FiLogOut><ToastContainer className='text-lg mt-24'></ToastContainer></div>
-                        : <div onClick={handleSignIn} className=' font-semibold text-blue-600 flex flex-row items-center gap-1'><span className='text-md'>Log in</span><ImUser></ImUser><ToastContainer className='text-lg mt-24'></ToastContainer></div>
+                    user ? <div onClick={handleLogout} className=' font-semibold text-red-600 flex flex-row items-center gap-1'><p className='text-sm cursor-pointer'>Log out</p><FiLogOut></FiLogOut><ToastContainer className='text-lg mt-24'></ToastContainer></div>
+                        : <div onClick={handleSignIn} className=' font-semibold text-blue-600 flex flex-row items-center gap-1'><p className='text-sm cursor-pointer'>Log in</p><ImUser></ImUser><ToastContainer className='text-lg mt-24'></ToastContainer></div>
                 }
 
 
-                <div className='lg:text-4xl md:text-3xl text-2xl text-green-600 font-extrabold drop-shadow-xl hover:drop-shadow-2xl shadow-black '><HiShoppingCart /></div>
+                <div><HiShoppingCart  className='lg:text-4xl md:text-3xl text-2xl text-green-500 font-extrabold hover:text-green-600 shadow-inner rounded-md  shadow-transparent  cursor-pointer'/></div>
             </div>
         </nav>
     );

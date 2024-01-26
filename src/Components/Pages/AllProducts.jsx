@@ -5,7 +5,7 @@ import Products from '../Header/Products';
 
 const AllProducts = () => {
     const allProduct = useLoaderData();
-    console.log(allProduct)
+    // console.log(allProduct)
     return (
         <div>
             <p className='font-bold text-4xl flex justify-center items-center p-10'>All products</p>

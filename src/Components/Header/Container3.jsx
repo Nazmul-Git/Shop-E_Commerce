@@ -11,7 +11,7 @@ const Container3 = () => {
     
     return (
         <div className=' bg-gray-100 p-4'>
-            <div className='md:flex flex-col justify-center items-center  text-center mt-28 '>
+            <div className='md:flex flex-col justify-center items-center  text-center mt-28'>
                 <h2 className=' font-extrabold text-4xl p-4'>Testimonials</h2>
                 <span>Some quotes from our happy customers</span>
             </div>

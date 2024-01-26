@@ -5,17 +5,19 @@ import React, { useContext, useState } from 'react';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import PlaceOrder from '../../PlaceOrder';
 // import { ToastContainer, toast } from 'react-toastify';
 
 
-const Login = () => {
-    const { googleSignIn, userLogIn } = useContext(AuthContext);
+// eslint-disable-next-line react/prop-types
+const Login = ({id}) => {
+    const { user,googleSignIn, userLogIn } = useContext(AuthContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const location = useLocation();
     const navigate = useNavigate();
 
-    const from = location.state?.from?.pathname || '/home';
+    const from = location.state?.from?.pathname || `/products/${id}`;
     // console.log(location);
     console.log(from);
 
@@ -24,9 +26,9 @@ const Login = () => {
         userLogIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
+                setUserState(loggedUser);
                 form.reset();
-                if(loggedUser) navigate(from);
+                navigate(from, {replace:true});
 
             })
             .catch(error => {
@@ -38,13 +40,14 @@ const Login = () => {
     const handleSignIn = () => {
         googleSignIn().then(result => {
             const loggedUser = result.user;
-            console.log(loggedUser);
+            console.log(loggedUser)
             //navigate do not work
-            if(loggedUser) navigate(from)
+            navigate(from, {replace:true})
         }).catch(error => console.log(error.message))
     }
 
     return (
+        !user?
         <div className="min-h-screen flex items-center justify-center bg-gray-100">
             <div className="bg-white p-8 rounded shadow-md w-96">
                 <h2 className="text-2xl font-semibold mb-4">Login Page</h2>
@@ -98,7 +101,8 @@ const Login = () => {
                     </div>
                 </form>
             </div>
-        </div>
+        </div>:
+        <PlaceOrder></PlaceOrder>
     );
 };
 
