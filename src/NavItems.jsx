@@ -58,7 +58,8 @@ const NavItems = () => {
                     <option><ActiveLink>Order</ActiveLink></option>
                     <option><ActiveLink>Help Center</ActiveLink></option>
                 </select> */}
-                <ActiveLink to='/place-order'>Order</ActiveLink>
+                <ActiveLink to='/home'>Home</ActiveLink>
+                <ActiveLink to='/orders'>Order</ActiveLink>
                 <ActiveLink to='/about'>About</ActiveLink>
                 <ActiveLink to='/contact'>Contact_us</ActiveLink>
             </div>

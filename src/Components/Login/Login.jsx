@@ -9,7 +9,7 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 
 
 const Login = () => {
-    const { user, googleSignIn } = useContext(AuthContext);
+    const {  googleSignIn } = useContext(AuthContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const location=useLocation();

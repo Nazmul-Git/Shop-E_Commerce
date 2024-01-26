@@ -15,7 +15,7 @@ import Contact from './Components/Pages/Contact.jsx';
 import Cart from './Components/Pages/Cart.jsx';
 import Login from './Components/Login/Login.jsx';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute.jsx';
-import PlaceOrder from './PlaceOrder.jsx';
+import Order from './Components/Pages/Order.jsx';
 
 const router = createBrowserRouter([
   {
@@ -65,8 +65,8 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path:'/place-order',
-    element:<PrivateRoute><PlaceOrder></PlaceOrder></PrivateRoute>
+    path:'/orders',
+    element:<PrivateRoute><Order></Order></PrivateRoute>
   },
   {
     path:'/login',
