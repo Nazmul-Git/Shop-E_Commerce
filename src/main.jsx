@@ -64,14 +64,15 @@ const router = createBrowserRouter([
       
     ]
   },
+  
+  {
+    path:'/login',
+    element:<Login></Login>
+  },
   {
     path:'/orders',
     element:<PrivateRoute><Order></Order></PrivateRoute>
   },
-  {
-    path:'/login',
-    element:<Login></Login>
-  }
   
  
 ]);

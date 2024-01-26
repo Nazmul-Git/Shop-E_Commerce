@@ -9,25 +9,39 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 
 
 const Login = () => {
-    const {  googleSignIn } = useContext(AuthContext);
+    const { googleSignIn, userLogIn } = useContext(AuthContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const location=useLocation();
-    const navigate=useNavigate();
-    const from=location.state?.from?.pathname || '/home'
-    console.log(location, from);
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const from = location.state?.from?.pathname || '/home';
+    // console.log(location);
+    console.log(from);
+
+    const handleLogIn = () => {
+        console.log(email,password)
+        userLogIn(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                form.reset();
+                if(loggedUser) navigate(from);
+
+            })
+            .catch(error => {
+                console.error(error.message);
+            })
+
+    }
 
     const handleSignIn = () => {
         googleSignIn().then(result => {
             const loggedUser = result.user;
             console.log(loggedUser);
             //navigate do not work
-            navigate(from, {replace:true})
-            // return toast('Successfully login..!');
+            if(loggedUser) navigate(from)
         }).catch(error => console.log(error.message))
-    }
-    const handleLogin=()=>{
-
     }
 
     return (
@@ -65,7 +79,7 @@ const Login = () => {
                                 <span>New in this site ?</span>
                                 <Link to='/register' className='text-blue-500 underline font-semibold'>Register</Link>
                             </div>
-                            <button onClick={handleSignIn}>
+                            <button type='button' onClick={handleSignIn}>
                                 <div className='flex gap-1'>
                                     <span className='text-center text-blue-500 font-semibold'>Sign in with </span>
                                     <FcGoogle className='w-8 h-8' />
@@ -76,7 +90,7 @@ const Login = () => {
                         </div>
                         <button
                             type="button"
-                            onClick={handleLogin}
+                            onClick={handleLogIn}
                             className="bg-blue-500 text-white p-2 rounded-md w-full mt-2"
                         >
                             Login

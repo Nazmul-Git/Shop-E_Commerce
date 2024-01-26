@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React, { Children, useEffect, useState } from 'react';
 import { createContext } from 'react';
-import { GoogleAuthProvider, getAuth, onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
+import { GoogleAuthProvider, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from '../Firebase/FIrebase.config';
 
 const auth=getAuth(app);
@@ -21,6 +21,10 @@ const AuthProvider = ({children}) => {
         return signOut(auth);
     }
 
+    const userLogIn=(email,pass)=>{
+        return signInWithEmailAndPassword(auth,email,pass);
+    }
+
 
     useEffect(()=>{
         const unsubscribe=onAuthStateChanged(auth,currentUser=>{
@@ -37,6 +41,7 @@ const AuthProvider = ({children}) => {
         user,
         googleSignIn,
         userLogOut,
+        userLogIn,
     }
     return (
         <AuthContext.Provider value={authInfo}>
