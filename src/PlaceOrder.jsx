@@ -4,15 +4,15 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // eslint-disable-next-line react/prop-types
-const PlaceOrder = ({ totalPrice, quantity, imgUrl,productName }) => {
+const PlaceOrder = ({ totalPrice, quantity, imgUrl, productName, handleCount, count, vats, priceWithCharge, navigateTo }) => {
     const [isUser, setUser] = useState(false);
     const [userDetails, setUserDetails] = useState([]);
     const [deliveryFee, setDelivery] = useState(null);
-    const [vats, setVats] = useState(null);
-    const [priceWithCharge, setPriceWithCharge] = useState(null);
     // console.log(userDetails)
 
 
+
+    // let delivery;
     const handleSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -22,26 +22,20 @@ const PlaceOrder = ({ totalPrice, quantity, imgUrl,productName }) => {
         const city = form.city.value;
         const area = form.area.value;
         const address = form.address.value;
-        const arrNew=[username,number,province,city,area,address]
+        const arrNew = [username, number, province, city, area, address]
 
         const lowerCase = province.toLowerCase();
-        let delivery;
-        if (lowerCase === 'dhaka'){
+        if (lowerCase === 'dhaka') {
+            navigateTo(55)
             setDelivery(55)
-            delivery=55;
-        } 
-        else{
-            setDelivery(120)
-            delivery=120;
-        } 
+            // delivery=55;
 
-        // calculate vat & total price
-        const vatIn100 = 100 * 0.01;
-        const itemsPrice=parseInt(totalPrice);
-        const vat=parseInt(((vatIn100 * itemsPrice) / 100).toFixed(2));
-        setVats(vat)
-        // console.log(itemsPrice, delivery,  vat)
-        setPriceWithCharge((itemsPrice + delivery + vat).toFixed(2));
+        }
+        else {
+            navigateTo(120)
+            setDelivery(120)
+            // delivery=120;
+        }
 
         if (form) {
             setUser(true);
@@ -103,7 +97,7 @@ const PlaceOrder = ({ totalPrice, quantity, imgUrl,productName }) => {
                                     </div>
 
                                     <div className="">
-                                        <button  type='submit' value='submit' className=" text-lg font-bold bg-orange-300 p-2 w-full rounded-md hover:bg-orange-500 md:mt-10 "> Save</button>
+                                        <button type='submit' value='submit' className=" text-lg font-bold bg-orange-300 p-2 w-full rounded-md hover:bg-orange-500 md:mt-10 "> Save</button>
                                     </div>
                                 </form>
                             </div>
@@ -122,6 +116,16 @@ const PlaceOrder = ({ totalPrice, quantity, imgUrl,productName }) => {
                         <div className=' backdrop-blur-md'>
                             <img src={imgUrl} alt="" />
                             <p className=' text-center font-semibold'>{productName}</p>
+                            <div>
+                                <p className='md:text-lg text-green-500 font-extrabold text-center'>Quantity</p>
+                                <div className='flex justify-center  gap-6 text-lg font-bold'>
+                                    <button onClick={() => { handleCount('decrement', deliveryFee); }} className='text-red-600'>-</button>
+                                    {
+                                        count
+                                    }
+                                    <button onClick={() => { handleCount('increment', deliveryFee); }} className='text-blue-600'>+</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <button type='submit' value='submit' className=" text-lg font-bold bg-orange-300 p-2 w-full rounded-md hover:bg-orange-500">Edit Details</button>
@@ -149,22 +153,29 @@ const PlaceOrder = ({ totalPrice, quantity, imgUrl,productName }) => {
                         <div className=' flex flex-col gap-2'>
                             <p>{quantity} Items Total</p>
                             <p>Delivery Fee</p>
-                            <p>Vat</p>
-                            <p>Total Payment</p>
+                            {deliveryFee &&
+                                <div>
+                                    <p>Vat</p>
+                                    <p>Total Payment</p>
+                                </div>
+                            }
                         </div>
                         <div className=' flex flex-col gap-2 text-red-600 font-semibold'>
-                            <p>{totalPrice} $</p>
-                            <p>{deliveryFee} $</p>
-                            <p>{vats} $</p>
-                            <p>{priceWithCharge} $</p>
+                            <p><span className='text-blue-500'>$ </span>{totalPrice}</p>
+                            <p><span className='text-blue-500'>$ </span>{deliveryFee}</p>
+                            {deliveryFee &&
+                                <div>
+                                    <p><span className='text-blue-500'>$ </span>{vats}</p>
+                                    <p><span className='text-blue-500'>$ </span>{priceWithCharge}</p>
+                                </div>
+                            }
                             <Link to='' className=' bg-blue-400 hover:bg-blue-600 p-2 text-center text-white font-bold rounded-md '>Place-Order</Link>
                         </div>
                     </div>
 
 
                 </div>
-            </div>
-
+            </div>    
         </div>
     );
 };

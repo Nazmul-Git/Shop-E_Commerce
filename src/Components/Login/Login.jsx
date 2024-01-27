@@ -26,7 +26,7 @@ const Login = ({id}) => {
         userLogIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
-                setUserState(loggedUser);
+                 console.log(loggedUser);
                 form.reset();
                 navigate(from, {replace:true});
 

@@ -5,22 +5,24 @@ import { Link } from 'react-router-dom';
 
 // eslint-disable-next-line react/prop-types
 const Products = ({ products, handleProductRoute }) => {
-    
+
     // eslint-disable-next-line react/prop-types
-    const { _id, name, imgUrl, price,details} = products;
-    const short=`${details.length>50}`&& details.slice(-50)+'...';
+    const { _id, name, imgUrl, price, details } = products;
+    const short = `${details.length > 50}` && details.slice(-50) + '...';
     // console.log(short)
     return (
-        <div  className=" relative opacity-75 hover:opacity-100 hover:bg-gray-300 duration-700 shadow-xl p-3 m-4">
-            <figure><img src={imgUrl} alt="Candle" /></figure>
-            <div className="card-body">
-                <h2 className="card-title font-semibold text-green-600">
-                    {name}
-                </h2>
-                <p className=' font-thin mb-8'>{short}</p>
-                <div className=" absolute bottom-4 right-4 flex items-center gap-2 font-semibold ">
-                    <div onClick={()=>handleProductRoute}><Link to={`/products/${_id}`} className=' font-extrabold  pl-2 pr-2 rounded-md bg-green-400'>Details </Link></div>
-                    <div className='text-blue-600 font-bold'>{price} <span className='text-red-600'>$</span></div>
+        <div className=" grid grid-cols-1 p-4 m-4 gap-2 shadow-inner shadow-black-700 rounded-md hover:bg-slate-300">
+            <img src={imgUrl} alt="Candle" />
+            <div className=" grid grid-cols-1 gap-4">
+                <div>
+                    <h2 className=" font-extrabold">{name}</h2>
+                    <p className=''>{short}</p>
+                </div>
+                <div className=" flex flex-row justify-between">
+                    <div onClick={() => handleProductRoute}>
+                        <Link to={`/products/${_id}`} className='font-bold p-2 rounded-md bg-green-500 hover:font-extrabold'>Details </Link>
+                    </div>
+                    <div className=' font-bold'>{price} <span className='text-red-600'>$</span></div>
                 </div>
             </div>
         </div>
