@@ -14,7 +14,7 @@ const Header = ({handleClick}) => {
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eaque aperiam repudiandae, nesciunt minus fugiat vel excepturi expedita? Ea, animi!</p>
                 </div>
                 <div className='flex items-center justify-center'>
-                    <button onClick={handleClick} className='bg-green-400  rounded-md  p-2 m-2'>Discover our collection</button>
+                    <button onClick={handleClick} className='bg-green-400 font-bold hover:bg-green-300 rounded-md  p-2 m-2'>Discover our collection</button>
                 </div>
             </div>
         </div>

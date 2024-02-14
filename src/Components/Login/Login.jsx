@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 // LoginPage.jsx
 import React, { useContext, useState } from 'react';
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import PlaceOrder from '../../PlaceOrder';

@@ -62,8 +62,8 @@ const Cart = () => {
         !newState ?
             <div className=' relative'>
                 <div className=' md:grid grid-cols-2 p-8 md:gap-10'>
-                    <div className=' bg-gray-100 p-4'>
-                        <img src={imgUrl} alt="" className='' />
+                    <div className=' bg-gray-100 p-4 flex flex-col gap-4'>
+                        <img src={imgUrl} alt="" className='lg:h-96 md:h-64 w-full' />
                         <p className='lg:text-lg'>All hand-made with natural soy wax, Candleaf is made for your pleasure moments.
                             🚚 FREE SHIPPING</p>
                     </div>
@@ -86,8 +86,8 @@ const Cart = () => {
                             </div>
 
 
-                            <div className=' grid grid-cols-1 lg:gap-20 md:gap-4 '>
-                                <img src={leaf} alt="" className=' bg-green-500 rounded-full p-4 md:h-40 md:w-40' />
+                            <div className=' grid grid-cols-1 lg:gap-20 md:gap-4 gap-2'>
+                                <img src={leaf} alt="" className='h-48 w-full bg-green-500 rounded-full p-4 md:h-40 md:w-40' />
                                 <p className='lg:text-lg text-justify '>{details}</p>
                                 <div className=' grid grid-cols-2 gap-2'>
                                     <button onClick={navigateTo} className=' bg-blue-300 hover:bg-blue-400 lg:text-lg md:text-md text-sm font-semibold rounded-md text-center p-2'>Buy Now</button>

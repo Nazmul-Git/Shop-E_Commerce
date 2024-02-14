@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
+import { data } from 'autoprefixer';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -23,6 +24,17 @@ const PlaceOrder = ({ totalPrice, quantity, imgUrl, productName, handleCount, co
         const area = form.area.value;
         const address = form.address.value;
         const arrNew = [username, number, province, city, area, address]
+
+        // post to server
+        // const user={username:username,number:number,province:province,city:city,address:address}
+        // fetch('http://localhost:5173/products/:id', {
+        //     method:'POST',
+        //     headers:{
+        //         'content-type':'application/json'
+        //     },
+        //     body:JSON.stringify(user)
+        // }).then(res=>res.json()).then(data=>console.log(data))
+
 
         const lowerCase = province.toLowerCase();
         if (lowerCase === 'dhaka') {

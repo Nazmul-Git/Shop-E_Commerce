@@ -52,7 +52,7 @@ const NavItems = () => {
                 <Link to='/home' className='font-bold text-2xl text-green-600'>CandLeaf</Link>
             </div>
 
-            <div className={`flex lg:gap-10 md:gap-8 gap-4 lg:text-lg md:text-md text-sm justify-end p-2 text-black font-bold duration-700 md:opacity-100  ${open ? ' opacity-100' : ' opacity-0'}`}>
+            <div className={`flex md:flex-row flex-col-1 lg:gap-10 md:gap-8 gap-4 lg:text-lg md:text-md text-sm  p-2 text-black font-bold duration-700 md:opacity-100  ${open ? ' opacity-100' : ' opacity-0'}`}>
                 {/* <select value={selects} onChange={(e) => setSelects(e.target.value)} className=" text-left w-full justify-center  gap-x-1.5 rounded-md  ring-1 ring-inset">
                     <option><ActiveLink>Discovery</ActiveLink></option>
                     <option><ActiveLink>Order</ActiveLink></option>
