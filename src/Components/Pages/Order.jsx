@@ -3,8 +3,9 @@ import React from 'react';
 
 const Order = () => {
     return (
-        <div>
-            <p>Order page</p>
+        <div className='text-2xl text-center'>
+            <p>Order page </p>
+            <p>All ordered products are load from database.</p>
         </div>
     );
 };

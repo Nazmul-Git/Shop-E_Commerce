@@ -17,6 +17,8 @@ import Login from './Components/Login/Login.jsx';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute.jsx';
 import Order from './Components/Pages/Order.jsx';
 
+// const url='https://shop-e-commerce-server.vercel.app';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,12 +27,12 @@ const router = createBrowserRouter([
       {
         path:'/',
         element:<Home></Home>,
-        loader:()=>fetch('http://localhost:5000/home')
+        loader:()=>fetch('https://shop-e-commerce-server.vercel.app/home')
       },
       {
         path:'/home',
         element: <Home></Home>,
-        loader:()=>fetch('http://localhost:5000/home')
+        loader:()=>fetch('https://shop-e-commerce-server.vercel.app/home')
       
       },
       
@@ -54,12 +56,12 @@ const router = createBrowserRouter([
       {
         path:'/products',
         element:<AllProducts></AllProducts>,
-        loader:()=>fetch('http://localhost:5000/products')
+        loader:()=>fetch('https://shop-e-commerce-server.vercel.app/products')
       },
       {
         path:':id',
         element:<Cart></Cart>,
-        loader:({params})=>fetch(`http://localhost:5000/products/${params.id}`)
+        loader:({params})=>fetch(`https://shop-e-commerce-server.vercel.app/products/${params.id}`)
       },
       
     ]

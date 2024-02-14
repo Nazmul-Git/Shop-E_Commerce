@@ -11,24 +11,24 @@ const Container3 = () => {
     
     return (
         <div className=' bg-gray-100 p-4'>
-            <div className='md:flex flex-col justify-center items-center  text-center mt-28'>
+            <div className='flex flex-col justify-center items-center  text-center mt-28'>
                 <h2 className=' font-extrabold text-4xl p-4'>Testimonials</h2>
                 <span>Some quotes from our happy customers</span>
             </div>
-            <div className='flex justify-center items-center md:gap-20 gap-2 p-4 '>
-                <div className=' shadow-sm md:w-60 '>
+            <div className='grid grid-cols-3 md:gap-20 gap-2'>
+                <div className=' shadow-sm '>
                     <img src={img1} alt="" />
                     <img src={star1}></img>
                     <p>“I love it! No more air fresheners”</p>
                     <span className=''>Luisa</span>
                 </div>
-                <div className=' shadow-sm md:w-60 '>
+                <div className=' shadow-sm '>
                     <img src={img2} alt="" />
                     <img src={star2}></img>
                     <p>“Raccomended for everyone”</p>
                     <span>Sunny</span>
                 </div>
-                <div className=' shadow-sm md:w-60 '>
+                <div className=' shadow-sm '>
                     <img src={img3} alt="" />
                     <img src={star3}></img>
                     <p>“Looks very natural, the smell is awesome”</p>

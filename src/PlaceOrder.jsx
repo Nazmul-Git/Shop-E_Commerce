@@ -23,7 +23,7 @@ const PlaceOrder = ({ totalPrice, quantity, imgUrl, productName, handleCount, co
         const city = form.city.value;
         const area = form.area.value;
         const address = form.address.value;
-        const arrNew = [username, number, province, city, area, address]
+        const arrNew = [username,number,province,city,area,address]
 
         // post to server
         // const user={username:username,number:number,province:province,city:city,address:address}
@@ -121,8 +121,9 @@ const PlaceOrder = ({ totalPrice, quantity, imgUrl, productName, handleCount, co
                     <p className='text-lg font-bold text-center text-green-500 '>Order Details</p>
                     <div className=' grid grid-cols-2'>
                         <div className='grid grid-cols-1 shadow-sm shadow-green-300 rounded-md'>
+                            
                             {
-                                userDetails.map((d, i) => <p key={i} className='p-2 font-semibold'>{d}</p>)
+                                userDetails.map((d, i) => <p key={i} className='p-2'>{d}</p>)
                             }
                         </div>
                         <div className=' backdrop-blur-md'>
