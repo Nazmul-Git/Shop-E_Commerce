@@ -7,6 +7,8 @@ import Container3 from '../Header/Container3';
 import PopularProducts from '../Header/popularProducts';
 import { useLoaderData } from 'react-router-dom';
 
+
+
 const Home = () => {
     const data=useLoaderData();
     // console.log(data);
@@ -18,12 +20,13 @@ const Home = () => {
     }
 
     return (
-        <div>
+        <div className='relative'>
             <Header handleClick={handleClick}></Header>
             <ProductContainer1 data={data} scrollRef={scrollRef}></ProductContainer1>
             <Container2></Container2>
             <Container3></Container3>
             <PopularProducts></PopularProducts>
+            
         </div>
     );
 };

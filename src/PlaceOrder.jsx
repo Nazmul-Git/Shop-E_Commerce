@@ -141,7 +141,7 @@ const PlaceOrder = ({ totalPrice, quantity, imgUrl, productName, handleCount, co
                             </div>
                         </div>
                     </div>
-                    <button type='submit' value='submit' className=" text-lg font-bold bg-orange-300 p-2 w-full rounded-md hover:bg-orange-500">Edit Details</button>
+                    <button type='submit' value='submit' className=" text-lg font-bold bg-orange-300 p-2 w-full rounded-md hover:bg-orange-500"><Link to=''>Edit Details</Link></button>
                 </div>
             }
 

@@ -29,6 +29,7 @@ const PopularProducts = () => {
                     popular.map(m => <Popular key={m._id} popular={m}></Popular>)
                 }
             </Marquee>
+            
         </div>
     );
 };

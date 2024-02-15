@@ -3,8 +3,6 @@
 import React, { createContext } from 'react';
 export const ContextP=createContext(null)
 const Context = ({children}) => {
-    
-
     const contInfo={
 
     }
