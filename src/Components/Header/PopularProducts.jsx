@@ -10,7 +10,7 @@ const PopularProducts = () => {
 
 
     useEffect(() => {
-        fetch('https://shop-e-commerce-server.vercel.app/products')
+        fetch('https://shop-e-commerce-server.vercel.app/home')
             .then(res => res.json())
             .then(data => {
                 setPopular(data.filter(p=>p.mostSell>200))

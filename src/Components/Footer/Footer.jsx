@@ -14,8 +14,8 @@ const Footer = () => {
             </nav>
             <nav className=' md:grid gap-4 md:text-left text-center'>
                 <header className="font-extrabold ">Company</header>
-                <Link to='' className="mr-2 hover:text-green-400">About_Us</Link>
-                <Link to='' className="mr-2 hover:text-green-400">Contact</Link>
+                <Link to='/about' className="mr-2 hover:text-green-400">About_Us</Link>
+                <Link to='/contact' className="mr-2 hover:text-green-400">Contact</Link>
                 <Link to='' className="mr-2 hover:text-green-400">Jobs</Link>
                 <Link to='' className="mr-2 hover:text-green-400">Press kit</Link>
             </nav>

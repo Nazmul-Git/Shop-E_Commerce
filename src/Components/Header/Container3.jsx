@@ -10,12 +10,12 @@ import star3 from '../../../images/Stars3.svg'
 const Container3 = () => {
     
     return (
-        <div className=' bg-gray-100 p-4'>
-            <div className='flex flex-col justify-center items-center  text-center mt-28'>
+        <div className=' bg-gray-100 p-28'>
+            <div className='flex flex-col justify-center items-center  text-center'>
                 <h2 className=' font-extrabold text-4xl p-4'>Testimonials</h2>
                 <span>Some quotes from our happy customers</span>
             </div>
-            <div className='grid grid-cols-3 md:gap-20 gap-2'>
+            <div className='flex flex-row justify-around gap-2'>
                 <div className=' shadow-sm '>
                     <img src={img1} alt="" />
                     <img src={star1}></img>

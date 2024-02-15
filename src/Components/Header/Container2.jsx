@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { Link } from 'react-router-dom';
-import candleImg from '../../../images/candle.jpg'
+import candleImg from '../../../images/candle2.jpg'
 
 const Container2 = () => {
     return (
@@ -17,10 +17,10 @@ const Container2 = () => {
                         <li>Long burning: No more waste. Created for last long.</li>
                     </ul>
                 </div>
-                <Link to='/about' className=' bg-green-400 md:p-2 rounded-md md:absolute bottom-0 right-12'>Learn more</Link>
+                <Link to='/about' className=' bg-green-300 font-semibold hover:bg-green-700 hover:text-white md:p-2 rounded-md md:absolute bottom-0 right-12'>Learn more</Link>
             </div>
             <div className=''>
-                <img src={candleImg} alt="candle" className='h-full shadow-xl shadow-black'/> 
+                <img src={candleImg} alt="candle" className='h-full shadow-white shadow-inner'/> 
             </div>
         </div>
     );
